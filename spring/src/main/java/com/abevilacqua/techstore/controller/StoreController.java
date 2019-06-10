@@ -44,7 +44,7 @@ public class StoreController {
         return new ResponseEntity<>(productRepo.updateProduct(product), HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public ResponseEntity deleteProduct(@PathVariable("id") final long id) {
         if(productRepo.deleteProduct(id)) return new ResponseEntity(HttpStatus.NO_CONTENT);
         else return new ResponseEntity(HttpStatus.NOT_FOUND);

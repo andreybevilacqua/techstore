@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 import java.util.stream.Stream;
 
 @SpringBootApplication
-public class TechstoreApplication {
+public class TechStoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TechstoreApplication.class, args);
+		SpringApplication.run(TechStoreApplication.class, args);
 	}
 
 	@Bean
