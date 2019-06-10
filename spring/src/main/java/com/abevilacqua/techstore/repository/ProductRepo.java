@@ -37,9 +37,10 @@ public class ProductRepo {
         return product;
     }
 
-    public void deleteProduct(long id) {
-        products.stream()
-                .filter(product -> product.getId() == id)
-                .forEach(product -> products.remove(product));
+    public boolean deleteProduct(long id) {
+        if(getProduct(id).isPresent()) {
+            products.remove(getProduct(id).get());
+            return true;
+        } else return false;
     }
 }
