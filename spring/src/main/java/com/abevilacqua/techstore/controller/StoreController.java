@@ -4,9 +4,7 @@ import com.abevilacqua.techstore.model.Product;
 import com.abevilacqua.techstore.repository.ProductRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,5 +32,15 @@ public class StoreController {
         return productRepo.getProduct(Long.valueOf(id))
                 .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping
+    public ResponseEntity<Product> addProduct(@RequestBody final Product product) {
+        return new ResponseEntity<>(productRepo.addProduct(product), HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<Product> updateProduct(@RequestBody final Product product) {
+        return new ResponseEntity<>(productRepo.updateProduct(product), HttpStatus.OK);
     }
 }

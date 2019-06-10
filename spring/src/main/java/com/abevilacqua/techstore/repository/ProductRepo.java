@@ -26,13 +26,15 @@ public class ProductRepo {
                 .findFirst();
     }
 
-    public void addProduct(Product product) {
+    public Product addProduct(Product product) {
         products.add(product);
+        return product;
     }
 
-    public void updateProduct(Product product) {
+    public Product updateProduct(Product product) {
         deleteProduct(product.getId());
         addProduct(product);
+        return product;
     }
 
     public void deleteProduct(long id) {
