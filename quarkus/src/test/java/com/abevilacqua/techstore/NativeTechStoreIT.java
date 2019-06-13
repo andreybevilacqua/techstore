@@ -1,4 +1,4 @@
-package com.abevilacqua;
+package com.abevilacqua.techstore;
 
 import io.quarkus.test.junit.SubstrateTest;
 

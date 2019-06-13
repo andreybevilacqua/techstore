@@ -1,4 +1,4 @@
-package com.abevilacqua;
+package com.abevilacqua.techstore;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
