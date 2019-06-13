@@ -12,10 +12,10 @@ public class TechStoreTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/hello")
+          .when().get("/")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body(is("Hey there from TechStore!!!"));
     }
 
 }

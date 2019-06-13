@@ -2,10 +2,12 @@ package com.abevilacqua.techstore.repository;
 
 import com.abevilacqua.techstore.model.Product;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationScoped
 public class ProductRepo {
 
     private List<Product> products;
