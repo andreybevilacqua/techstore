@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class TechStoreTest {
 
     @Test
-    public void testHelloEndpoint() {
+    void testHelloEndpoint() {
         given()
           .when().get("/")
           .then()

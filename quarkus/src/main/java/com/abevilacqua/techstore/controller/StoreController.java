@@ -2,6 +2,7 @@ package com.abevilacqua.techstore.controller;
 
 import com.abevilacqua.techstore.model.Product;
 import com.abevilacqua.techstore.repository.ProductRepo;
+import lombok.NoArgsConstructor;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -18,8 +19,6 @@ public class StoreController {
 
     private ProductRepo productRepo;
 
-    public StoreController() {}
-
     @Inject
     public StoreController(ProductRepo productRepo) { this.productRepo = productRepo; }
 
@@ -29,7 +28,6 @@ public class StoreController {
     @GET
     @Path("/products")
     public List<Product> getProducts() {
-        productRepo.addProduct(new Product(1,"test", "test", 1.0));
         return productRepo.getProducts();
     }
 }
