@@ -28,5 +28,8 @@ public class StoreController {
 
     @GET
     @Path("/products")
-    public List<Product> getProducts() { return productRepo.getProducts(); }
+    public List<Product> getProducts() {
+        productRepo.addProduct(new Product(1,"test", "test", 1.0));
+        return productRepo.getProducts();
+    }
 }

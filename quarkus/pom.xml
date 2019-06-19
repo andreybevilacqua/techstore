@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.abevilacqua</groupId>
   <artifactId>techstore</artifactId>
@@ -10,9 +11,9 @@
   <properties>
     <surefire-plugin.version>2.22.0</surefire-plugin.version>
     <quarkus.version>0.15.0</quarkus.version>
-    <lombok.version>1.18.8</lombok.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <lombok.version>1.18.8</lombok.version>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
@@ -51,6 +52,11 @@
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
       <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
   </dependencies>
 
