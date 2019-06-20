@@ -1,26 +1,19 @@
 package com.abevilacqua.techstore.model;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @Getter
 @Entity
-public class Product {
+public class Product extends PanacheEntity {
 
-    @Id
-    private final long id;
-
-    @NotNull
-    private final String name;
-
-    @NotNull
-    private final String description;
-
-    @NotNull
-    private final double price;
+    // PanacheEntity already have a Long ID implemented.
+    // So just implement the required attributes.
+    public String name;
+    public String description;
+    public double price;
 }
