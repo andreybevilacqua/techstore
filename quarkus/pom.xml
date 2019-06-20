@@ -10,13 +10,11 @@
 
   <properties>
     <surefire-plugin.version>2.22.0</surefire-plugin.version>
-    <quarkus.version>0.15.0</quarkus.version>
+    <quarkus.version>0.17.0</quarkus.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <lombok.version>1.18.8</lombok.version>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <h2.version>0.17.0</h2.version>
-    <panache.version>0.17.0</panache.version>
   </properties>
 
   <dependencyManagement>
@@ -65,13 +63,11 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-h2</artifactId>
-      <version>${h2.version}</version>
     </dependency>
 
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm-panache</artifactId>
-      <version>${panache.version}</version>
     </dependency>
 
   </dependencies>
