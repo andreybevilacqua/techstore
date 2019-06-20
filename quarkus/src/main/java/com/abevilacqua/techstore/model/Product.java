@@ -3,13 +3,16 @@ package com.abevilacqua.techstore.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @Getter
+@Entity
 public class Product {
 
-    @NotNull
+    @Id
     private final long id;
 
     @NotNull

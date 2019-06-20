@@ -4,6 +4,7 @@ import com.abevilacqua.techstore.model.Product;
 import com.abevilacqua.techstore.repository.ProductRepo;
 import lombok.NoArgsConstructor;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -13,6 +14,8 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/")
+@ApplicationScoped
+@NoArgsConstructor
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class StoreController {
