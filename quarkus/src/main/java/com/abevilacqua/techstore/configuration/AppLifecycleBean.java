@@ -20,11 +20,12 @@ public class AppLifecycleBean {
     }
 
     private void createDB() {
-        Product.persist(Stream.of(new Product("Mouse", "Really good mouse", 20),
+        Stream.of(new Product("Mouse", "Really good mouse", 20),
                 new Product("Notebook", "Great notebook", 1000),
                 new Product("Keyboard", "Great keyboard", 300),
                 new Product("Headphones", "Great headphones", 60),
-                new Product( "Touchscreen", "Great screen", 500)));
+                new Product( "Touchscreen", "Great screen", 500))
+                .forEach(product -> product.persist());
         System.out.println(Product.findAll());
     }
 }
