@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
+import javax.transaction.Transactional;
 import java.util.stream.Stream;
 
 @ApplicationScoped
@@ -14,6 +15,7 @@ public class AppLifecycleBean {
 
     private static final Logger LOGGER = LoggerFactory.getLogger("Listener bean");
 
+    @Transactional
     void onStart(@Observes StartupEvent event) {
         LOGGER.info("Application starting...");
         createDB();

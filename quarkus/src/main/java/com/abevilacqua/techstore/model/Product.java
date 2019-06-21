@@ -1,10 +1,14 @@
 package com.abevilacqua.techstore.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product extends PanacheEntity {
 
     // PanacheEntity already have a Long ID implemented.
@@ -12,10 +16,4 @@ public class Product extends PanacheEntity {
     public String name;
     public String description;
     public double price;
-
-    public Product(String name, String description, double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
 }

@@ -14,8 +14,6 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class StoreController {
 
-    public StoreController(){}
-
     @GET
     public String helloStore() { return "Hey there from TechStore!!!"; }
 
