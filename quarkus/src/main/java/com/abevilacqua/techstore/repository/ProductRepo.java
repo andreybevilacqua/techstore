@@ -28,9 +28,9 @@ public class ProductRepo {
     @Transactional
     public void updateProduct(long id, Product newProduct) {
         getProductById(id).ifPresent(product -> {
-            product.name = newProduct.name;
-            product.description = newProduct.description;
-            product.price = newProduct.price;
+            product.setName(newProduct.getName());
+            product.setDescription(newProduct.getDescription());
+            product.setPrice(newProduct.getPrice());
             Product.persist(product);
         });
     }
