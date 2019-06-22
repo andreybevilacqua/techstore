@@ -24,4 +24,14 @@ public class ProductRepo {
     public void addProduct(final Product product) {
         Product.persist(product);
     }
+
+    @Transactional
+    public void updateProduct(long id, Product newProduct) {
+        getProductById(id).ifPresent(product -> {
+            product.name = newProduct.name;
+            product.description = newProduct.description;
+            product.price = newProduct.price;
+            Product.persist(product);
+        });
+    }
 }
