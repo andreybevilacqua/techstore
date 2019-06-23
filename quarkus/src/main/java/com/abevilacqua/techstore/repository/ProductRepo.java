@@ -34,4 +34,9 @@ public class ProductRepo {
             Product.persist(product);
         });
     }
+
+    @Transactional
+    public void deleteProduct(long id) {
+        getProductById(id).ifPresent(Product::delete);
+    }
 }

@@ -48,4 +48,11 @@ public class StoreController {
         productRepo.updateProduct(id, product);
         return Response.ok(product).build();
     }
+
+    @DELETE
+    @Path("/{id}")
+    public Response deleteProduct(@PathParam("id") final long id) {
+        productRepo.deleteProduct(id);
+        return Response.noContent().build();
+    }
 }
