@@ -1,6 +1,7 @@
 package com.abevilacqua.techstore;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.parsing.Parser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -43,10 +44,11 @@ class TechStoreTest {
                 .when()
                 .post("/products")
                 .then()
+                .using()
+                .defaultParser(Parser.JSON)
+                .assertThat()
                 .statusCode(201)
-                .body("name", containsString("New Product"),
-                        "description", containsString("Really good new product"),
-                        "price", containsString("256"));
+                .header("Location", "http://localhost:8081/product/6");
     }
 
     @Test
