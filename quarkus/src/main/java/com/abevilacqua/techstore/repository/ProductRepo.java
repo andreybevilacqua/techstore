@@ -21,8 +21,9 @@ public class ProductRepo {
     }
 
     @Transactional
-    public void addProduct(final Product product) {
+    public Product addProduct(final Product product) {
         Product.persist(product);
+        return product;
     }
 
     @Transactional
