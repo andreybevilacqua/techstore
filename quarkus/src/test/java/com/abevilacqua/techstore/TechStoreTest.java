@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import javax.ws.rs.core.MediaType;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 
 @QuarkusTest
 class TechStoreTest {
@@ -44,8 +43,6 @@ class TechStoreTest {
                 .when()
                 .post("/products")
                 .then()
-                .using()
-                .defaultParser(Parser.JSON)
                 .assertThat()
                 .statusCode(201)
                 .header("Location", "http://localhost:8081/product/6");
@@ -54,7 +51,15 @@ class TechStoreTest {
     @Test
     @DisplayName("Should update product")
     void shouldUpdateProduct() {
-
+        given()
+                .body("{\"name\": \"New Mouse\", \"description\": \"Really good new mouse\", \"price\": \"80\"}")
+                .header("Content-Type", MediaType.APPLICATION_JSON)
+                .when().put("/products/1")
+                .then().using().defaultParser(Parser.JSON)
+                .assertThat().statusCode(200)
+                .body(containsString("Really good new mouse"),
+                        containsString("New Mouse"),
+                        containsString("80"));
     }
 
     @Test
