@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 import javax.ws.rs.core.MediaType;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 class TechStoreTest {
@@ -44,8 +45,7 @@ class TechStoreTest {
                 .post("/products")
                 .then()
                 .assertThat()
-                .statusCode(201)
-                .header("Location", "http://localhost:8081/product/6");
+                .statusCode(201);
     }
 
     @Test
@@ -65,7 +65,11 @@ class TechStoreTest {
     @Test
     @DisplayName("Should delete product")
     void shouldDeleteProduct() {
-
+        shouldCreateProduct();
+        given().
+                when()
+                .delete("/products/6")
+                .then().assertThat().statusCode(204);
     }
 
 }
