@@ -1,10 +1,10 @@
-# Common Print Service
+# TechStore
 This application runs with:
 - Quarkus 0.17.0
 
 ## Docker
 
-To build Docker container: `docker build . -f src/main/docker/Dockerfile`
+To build Docker container: `docker build -f src/main/docker/Dockerfile.jvm .`
 To run Docker container: `docker run -p 8080:8080 $IMAGE_ID`
 
 ## Documentation
