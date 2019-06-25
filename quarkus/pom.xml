@@ -70,10 +70,10 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-openapi</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.quarkus</groupId>-->
+<!--      <artifactId>quarkus-smallrye-openapi</artifactId>-->
+<!--    </dependency>-->
 
   </dependencies>
 
@@ -91,19 +91,19 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.jboss.jandex</groupId>
-        <artifactId>jandex-maven-plugin</artifactId>
-        <version>1.0.6</version>
-        <executions>
-          <execution>
-            <id>make-index</id>
-            <goals>
-              <goal>jandex</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.jboss.jandex</groupId>-->
+<!--        <artifactId>jandex-maven-plugin</artifactId>-->
+<!--        <version>1.0.6</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>make-index</id>-->
+<!--            <goals>-->
+<!--              <goal>jandex</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire-plugin.version}</version>
