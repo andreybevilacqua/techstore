@@ -16,7 +16,7 @@ public final class DBInitializer {
                     new Product(3, "Keyboard", "Great keyboard", 300),
                     new Product(4, "Headphones", "Great headphones", 60),
                     new Product(5, "Touchscreen", "Great screen", 500))
-                    .forEach(productRepo::addProduct);
+                    .forEach(productRepo::save);
         };
     }
 }
