@@ -12,4 +12,3 @@ To run Docker container: `docker run -p 8080:8080 $IMAGE_ID`
 ### API Documentation
 This application uses Swagger and Swagger UI.
 To see the web dashboard, go to: http://localhost:8080/swagger-ui
-
