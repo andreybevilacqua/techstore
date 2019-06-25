@@ -1,6 +1,12 @@
 # TechStore
 This application runs with:
 - Quarkus 0.17.0
+    - quarkus-resteasy
+    - quarkus-resteasy-jsonb
+    - quarkus-jdbc-h2
+    - quarkus-hibernate-orm-panache
+
+- Lombok 1.18.8
 
 ## Docker
 
