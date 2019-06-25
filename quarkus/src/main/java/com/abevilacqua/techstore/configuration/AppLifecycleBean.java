@@ -28,6 +28,5 @@ public class AppLifecycleBean {
                 new Product("Headphones", "Great headphones", 60),
                 new Product( "Touchscreen", "Great screen", 500))
                 .forEach(product -> product.persist());
-        System.out.println(Product.findAll());
     }
 }
