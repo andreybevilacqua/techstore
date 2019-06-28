@@ -1,9 +1,6 @@
 package com.abevilacqua.techstore.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,6 +9,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor(access = AccessLevel.PACKAGE, force = true)
 @Getter
 @Entity
+@Builder
 public class Product {
 
     @Id

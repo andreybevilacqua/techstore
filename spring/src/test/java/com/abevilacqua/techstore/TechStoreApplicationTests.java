@@ -12,7 +12,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.abevilacqua.techstore.TestUtils.createProduct;
+import static com.abevilacqua.techstore.TestUtils.mapToJson;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -30,7 +34,7 @@ class TechStoreApplicationTests {
 	@BeforeEach
 	void setup() {
 		this.storeController = new StoreController(productRepo);
-		this.mockMvc = MockMvcUtils.createMockMvc(storeController);
+		this.mockMvc = TestUtils.createMockMvc(storeController);
 	}
 
 	@Test
@@ -43,6 +47,32 @@ class TechStoreApplicationTests {
 				.andExpect(jsonPath("$.[*].name").exists())
 				.andExpect(jsonPath("$.[*].description").exists())
 				.andExpect(jsonPath("$.[*].price").exists());
+	}
+
+	@Test
+	@DisplayName("Should find a product by ID")
+	void shouldFindAProductByID() throws Exception {
+		mockMvc.perform(get("/products/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andDo(print())
+				.andExpect(jsonPath("$.id").exists())
+				.andExpect(jsonPath("$.name").exists())
+				.andExpect(jsonPath("$.description").exists())
+				.andExpect(jsonPath("$.price").exists());
+	}
+
+	@Test
+	@DisplayName("Should create a product")
+	void shouldCreateAProduct() throws Exception {
+		mockMvc.perform(post("/products")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(mapToJson(createProduct())))
+				.andExpect(status().isCreated())
+				.andExpect(jsonPath("$.id").exists())
+				.andExpect(jsonPath("$.name").exists())
+				.andExpect(jsonPath("$.description").exists())
+				.andExpect(jsonPath("$.price").exists());
 	}
 
 }
