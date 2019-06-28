@@ -15,11 +15,6 @@ public class StoreController {
         this.productRepo = productRepo;
     }
 
-    @GetMapping("/")
-    public ResponseEntity helloStore() {
-        return new ResponseEntity<>("Hey there from TechStore!!!", HttpStatus.OK);
-    }
-
     @GetMapping("/products")
     public ResponseEntity<Iterable<Product>> getProducts() {
         return new ResponseEntity<>(productRepo.findAll(), HttpStatus.OK);
