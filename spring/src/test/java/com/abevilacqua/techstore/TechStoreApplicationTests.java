@@ -14,8 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static com.abevilacqua.techstore.TestUtils.createProduct;
 import static com.abevilacqua.techstore.TestUtils.mapToJson;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -73,6 +72,24 @@ class TechStoreApplicationTests {
 				.andExpect(jsonPath("$.name").exists())
 				.andExpect(jsonPath("$.description").exists())
 				.andExpect(jsonPath("$.price").exists());
+	}
+
+	@Test
+	@DisplayName("Should update product")
+	void shouldUpdateProduct() throws Exception {
+		mockMvc.perform(put("/products")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(mapToJson(createProduct())))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	@DisplayName("Should delete product")
+	void shouldDeleteProduct() throws Exception {
+		shouldCreateAProduct();
+		mockMvc.perform(delete("/products/6")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isNoContent());
 	}
 
 }
