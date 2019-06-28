@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/products")
 public class StoreController {
 
     private ProductRepo productRepo;
@@ -15,12 +16,12 @@ public class StoreController {
         this.productRepo = productRepo;
     }
 
-    @GetMapping("/products")
+    @GetMapping
     public ResponseEntity<Iterable<Product>> getProducts() {
         return new ResponseEntity<>(productRepo.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") final String id) {
         return productRepo.findById(Long.valueOf(id))
                 .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
@@ -37,7 +38,7 @@ public class StoreController {
         return new ResponseEntity<>(productRepo.save(product), HttpStatus.OK);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity deleteProduct(@PathVariable("id") final long id) {
         if(productRepo.findById(id).isPresent()){
             productRepo.deleteById(id);
