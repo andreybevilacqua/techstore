@@ -1,6 +1,6 @@
 # TechStore
 This application runs with:
-- Quarkus 0.19.1
+- Quarkus 0.18.0
     - quarkus-resteasy
     - quarkus-resteasy-jsonb
     - quarkus-jdbc-h2
