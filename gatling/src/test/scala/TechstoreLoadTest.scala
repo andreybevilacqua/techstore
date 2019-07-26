@@ -22,14 +22,14 @@ class TechstoreLoadTest extends Simulation {
 
   object CreateAndLoadProduct {
     val create = exec(http("CreateProduct")
-        .post(productsPath)
-        .body(ElFileBody("create_product.json"))
-        .asJson
-        .check(jsonPath("$.id").saveAs("productId")))
+      .post(productsPath)
+      .body(ElFileBody("create_product.json"))
+      .asJson
+      .check(jsonPath("$.id").saveAs("productId")))
 
     val load = exec(http("LoadProduct")
-    .get(productsPath + "/${productId}")
-    .check(status.is(HttpURLConnection.HTTP_OK)))
+      .get(productsPath + "/${productId}")
+      .check(status.is(HttpURLConnection.HTTP_OK)))
   }
 
   val httpProtocol = http.baseUrl(baseURL).acceptHeader("application/json").userAgentHeader("Gatling")
