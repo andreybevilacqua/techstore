@@ -37,9 +37,10 @@ public class StoreController {
     }
 
     @POST
+    @Produces(APPLICATION_JSON)
     public Response addProduct(Product newProduct) {
         Product p = productRepo.addProduct(newProduct);
-        return Response.created(URI.create("/product/" + p.id)).build();
+        return Response.ok(p).build();
     }
 
     @PUT

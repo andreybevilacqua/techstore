@@ -45,7 +45,7 @@ class TechStoreTest {
                 .post("/products")
                 .then()
                 .assertThat()
-                .statusCode(201);
+                .statusCode(200);
     }
 
     @Test
