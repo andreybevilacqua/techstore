@@ -8,22 +8,37 @@ import scala.concurrent.duration._
 class TechstoreLoadTest extends Simulation {
   val rampUpTimeSecs = 5
   val testTimeSecs = 60
-  val numberOfUsers = 200
+  val numberOfUsers = 350
   val numberOfRequestsPerSeconds = 1000
 
   val baseURL = "http://localhost:8080"
   val productsPath = "/products"
 
-  object CreateAndLoadProduct {
+  object LoadProducts {
     val load = exec(http("LoadProducts")
       .get(productsPath)
       .check(status.is(HttpURLConnection.HTTP_OK)))
   }
 
+  object CreateAndLoadProduct {
+    val create = exec(http("CreateProduct")
+        .post(productsPath)
+        .body(ElFileBody("create_product.json"))
+        .asJson
+        .check(jsonPath("$.id").saveAs("productId")))
+
+    val load = exec(http("LoadProduct")
+    .get(productsPath + "/${productId}")
+    .check(status.is(HttpURLConnection.HTTP_OK)))
+  }
+
   val httpProtocol = http.baseUrl(baseURL).acceptHeader("application/json").userAgentHeader("Gatling")
+
   val testScenario = scenario("LoadTest")
     .during(testTimeSecs) {
-      exec(CreateAndLoadProduct.load)
+      exec(LoadProducts.load,
+        CreateAndLoadProduct.create,
+        CreateAndLoadProduct.load)
     }
 
   setUp(testScenario.inject(atOnceUsers(numberOfUsers)))
