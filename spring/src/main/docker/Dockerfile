@@ -1,6 +1,6 @@
 FROM fabric8/java-alpine-openjdk8-jre
 
-ENV JAVA_OPTS="-Xmx16m"
+ENV JAVA_OPTS="-Xmx256m"
 
 EXPOSE 8080
 
