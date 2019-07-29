@@ -4,6 +4,7 @@ import com.abevilacqua.techstore.model.Product;
 import com.abevilacqua.techstore.repository.ProductRepo;
 import lombok.NoArgsConstructor;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -17,6 +18,7 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 @NoArgsConstructor
 public class StoreController {
 
+    @Inject
     private ProductRepo productRepo;
 
     public StoreController(ProductRepo productRepo) {
