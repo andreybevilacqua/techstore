@@ -13,4 +13,4 @@ This application runs with:
 ## Docker
 
 To build Docker container: `docker build -f src/main/docker/Dockerfile.jvm .`
-To run Docker container: `docker run -p 8080:8080 $IMAGE_ID`
+To run Docker container: `docker run -i -p 8080:8080 quarkus/techstore`
