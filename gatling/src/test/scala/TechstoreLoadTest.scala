@@ -11,7 +11,6 @@ class TechstoreLoadTest extends Simulation {
   val numberOfRequestsPerSeconds = 1000
   val numberOfUsers = 200
 
-
   val baseURL = "http://localhost:8080"
   val productsPath = "/products"
 
