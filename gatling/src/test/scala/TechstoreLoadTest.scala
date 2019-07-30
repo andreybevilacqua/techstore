@@ -8,8 +8,8 @@ import scala.concurrent.duration._
 class TechstoreLoadTest extends Simulation {
   val rampUpTimeSecs = 5
   val testTimeSecs = 60
-  val numberOfRequestsPerSeconds = 1000
-  val numberOfUsers = 200
+  val numberOfRequestsPerSeconds = 12000
+  val numberOfUsers = 1000
 
   val baseURL = "http://localhost:8080"
   val productsPath = "/products"

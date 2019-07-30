@@ -1,13 +1,10 @@
 # TechStore
 This application runs with:
 - Java 8
-- Quarkus 0.19.1
-    - quarkus-resteasy
-    - quarkus-resteasy-jsonb
-    - quarkus-jdbc-h2
-- Lombok 1.18.8
+- Spring Boot 2.1.5.RELEASE
+- Spring Data JPA
 - H2 Database
-- Quarkus Hibernate Panache
+- Lombok 1.18.8
 - Junit 5
 
 ## Docker
