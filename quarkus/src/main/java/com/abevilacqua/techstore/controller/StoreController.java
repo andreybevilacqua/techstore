@@ -21,10 +21,6 @@ public class StoreController {
     @Inject
     private ProductRepo productRepo;
 
-    public StoreController(ProductRepo productRepo) {
-        this.productRepo = productRepo;
-    }
-
     @GET
     public List<Product> getProducts() {
         return productRepo.getProducts();
