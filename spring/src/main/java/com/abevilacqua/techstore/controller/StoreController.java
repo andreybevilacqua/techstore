@@ -2,6 +2,7 @@ package com.abevilacqua.techstore.controller;
 
 import com.abevilacqua.techstore.model.Product;
 import com.abevilacqua.techstore.repository.ProductRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ public class StoreController {
 
     private ProductRepo productRepo;
 
+    @Autowired
     public StoreController(ProductRepo productRepo) {
         this.productRepo = productRepo;
     }
