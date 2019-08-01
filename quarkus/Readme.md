@@ -5,12 +5,15 @@ This application runs with:
     - quarkus-resteasy
     - quarkus-resteasy-jsonb
     - quarkus-jdbc-h2
-- Lombok 1.18.8
-- H2 Database
+- PostgreSQL
 - Quarkus Hibernate Panache
+- Lombok 1.18.8
+- H2 Database during Maven test scope
 - Junit 5
+- Docker and Docker Compose
 
-## Docker
-
-To build Docker container: `docker build -f src/main/docker/Dockerfile.jvm .`
-To run Docker container: `docker run -i -p 8080:8080 quarkus/techstore`
+## Docker Compose
+To build the solution:
+    
+    - mvn clean install -U
+    - docker-compose up
