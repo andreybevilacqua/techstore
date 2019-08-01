@@ -1,13 +1,15 @@
 # TechStore
 This application runs with:
 - Java 8
-- Spring Boot 2.1.5.RELEASE
+- Spring Boot 2.1.6.RELEASE
 - Spring Data JPA
-- H2 Database
+- PostgreSQL
 - Lombok 1.18.8
+- H2 Database during Maven test scope
 - Junit 5
 
-## Docker
-
-To build Docker container: `docker build -f src/main/docker/Dockerfile -t spring/techstore .`
-To run Docker container: `docker run -i -p 8080:8080 spring/techstore`
+## Docker Compose
+To build the solution:
+    
+    - mvn clean install -U
+    - docker-compose up
