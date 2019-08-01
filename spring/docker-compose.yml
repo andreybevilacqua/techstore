@@ -1,26 +1,20 @@
-version: '3'
+version: '3.1'
 
 services:
-  spring-boot-docker:
+  spring-boot:
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - docker-mysql
+      - postgres
     ports:
-      - "8080:8080"
-    environment:
-      - DATABASE_HOST=docker-mysql
-      - DATABASE_USER=root
-      - DATABASE_PASSWORD=root
-      - DATABASE_NAME=testdb
-      - DATABASE_PORT=3306
+      - 8080:8080
 
-  docker-mysql:
-    image: mysql:latest
+  postgres:
+    image: postgres:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=testdb
-      - MYSQL_PASSWORD=root
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=test
+      - POSTGRES_DB=testdb
     ports:
-      - "3306:3306"
+      - "5432:5432"
