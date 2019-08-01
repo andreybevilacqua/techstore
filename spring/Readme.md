@@ -7,6 +7,7 @@ This application runs with:
 - Lombok 1.18.8
 - H2 Database during Maven test scope
 - Junit 5
+- Docker and Docker Compose
 
 ## Docker Compose
 To build the solution:
