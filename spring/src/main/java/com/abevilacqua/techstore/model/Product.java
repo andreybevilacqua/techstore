@@ -2,30 +2,24 @@ package com.abevilacqua.techstore.model;
 
 import lombok.*;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PACKAGE, force = true)
-@Getter
+@NoArgsConstructor
+@Data
 @Entity
 @Builder
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private final long id;
+    private long id;
 
-    @NotNull
-    @Column
-    private final String name;
-
-    @NotNull
-    @Column
-    private final String description;
-
-    @NotNull
-    @Column
-    private final double price;
+    private String name;
+    private String description;
+    private double price;
 
 }
