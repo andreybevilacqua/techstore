@@ -2,7 +2,6 @@ package com.abevilacqua.techstore.controller;
 
 import com.abevilacqua.techstore.model.Product;
 import com.abevilacqua.techstore.repository.ProductRepo;
-import lombok.NoArgsConstructor;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -15,7 +14,6 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 @Path("/products")
 @Produces(APPLICATION_JSON)
 @Consumes(APPLICATION_JSON)
-@NoArgsConstructor
 public class StoreController {
 
     @Inject

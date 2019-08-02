@@ -1,7 +1,6 @@
 package com.abevilacqua.techstore.repository;
 
 import com.abevilacqua.techstore.model.Product;
-import lombok.NoArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-@NoArgsConstructor
 public class ProductRepo {
 
     public List<Product> getProducts() {
