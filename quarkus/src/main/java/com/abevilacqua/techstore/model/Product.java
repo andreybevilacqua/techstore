@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 @Entity
 @Builder
 public class Product extends PanacheEntity {
-    
+
     private String name;
     private String description;
     private double price;
