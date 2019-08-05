@@ -1,4 +1,5 @@
-FROM openjdk:11-jre-slim
+FROM fabric8/java-centos-openjdk11-jre
+
 ENV JAVA_OPTS="-Xmx256m"
 
 EXPOSE 8080
